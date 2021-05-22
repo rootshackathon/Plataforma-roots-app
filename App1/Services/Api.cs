@@ -11,5 +11,10 @@
         {            
             return null;
         }
+
+        public static Models.RootArvore GetArvores()
+        {
+            return null;
+        }
     }
 }
