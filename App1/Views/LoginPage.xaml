@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:panel="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="App1.Views.LoginPage"
+             BackgroundColor="Accent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackLayout>
+            <ffimageloadingsvg:SvgCachedImage 
+                HeightRequest="100" 
+                Source="icon_login.svg"/>
+        </StackLayout>
+        <panel:PancakeView Grid.Row="1" Grid.RowSpan="2" BackgroundColor="White" Padding="50" CornerRadius="30,30,0,0">
+            <StackLayout>
+                <input:AdvancedEntry
+                    x:Name="EntryEmail"
+                    IsEnabled="True"
+                    Title="Email"
+                    MinLength="10"
+                    MaxLength="50"
+                    TextColor="Black"   
+                    BorderColor="Silver"
+                    TextFontSize="14"
+                    Text="{Binding Email}"/>
+
+                <input:AdvancedEntry
+                    x:Name="EntrySenha"
+                    IsEnabled="True"
+                    Title="Senha"
+                    MinLength="10"
+                    MaxLength="50"
+                    TextColor="Black"   
+                    BorderColor="Silver"
+                    TextFontSize="14"
+                    IsPassword="True"
+                    Text="{Binding Senha}"/>
+
+                <Button Text="ENTRAR" BackgroundColor="Accent" CornerRadius="10" TextColor="White" Command="{Binding LoginCommand}" Margin="0,20,0,0"/>
+            </StackLayout>
+        </panel:PancakeView>
+    </Grid>
+</ContentPage>

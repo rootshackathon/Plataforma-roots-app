@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
+
   <style name="MainTheme" parent="MainTheme.Base">
     <item name="colorPrimary">#018E68</item>
     <item name="colorPrimaryDark">#018E68</item>
     <item name="colorAccent">#018E68</item>
   </style>
-  <style name="SplashTheme" parent="MainTheme.Base">
+  <!--<style name="SplashTheme" parent="MainTheme.Base">
     <item name="android:background">@drawable/splash_drawable</item>
-  </style>
+  </style>-->
 </resources>
