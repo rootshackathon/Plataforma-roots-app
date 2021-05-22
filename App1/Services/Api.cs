@@ -16,5 +16,10 @@
         {
             return null;
         }
+
+        public static bool PostArvore(Models.Arvore value)
+        {
+            return true;    
+        }
     }
 }
