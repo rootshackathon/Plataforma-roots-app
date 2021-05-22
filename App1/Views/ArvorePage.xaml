@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.ArvorePage">
+    <ContentPage.Content>
+        <CollectionView x:Name="collectionView" Grid.Row="1" ItemsSource="{Binding Itens}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem
+                                        x:Name="visualizarNoMapa"
+                                        Text="Visualizar"
+                                        BackgroundColor="#018E68"                                            
+                                        Invoked="VisualizarNoMapa_Invoked"
+                                        Command="{Binding Source={x:Reference collectionView}}"
+                                        CommandParameter="{Binding}"/>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <StackLayout Padding="0,5,0,5">
+                                <StackLayout Padding="10" BackgroundColor="#f3f6f8">
+                                    <Label Text="{Binding descricao}"></Label>
+                                    <Label Text="{Binding especie.descricao}"></Label>
+                                    <Label Text="{Binding regiao.descricao}"></Label>
+                                    <Label Text="{Binding created_at}"></Label>
+                                </StackLayout>
+                            </StackLayout>
+
+                        </SwipeView>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>
