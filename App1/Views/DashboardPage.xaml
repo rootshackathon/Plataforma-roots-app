@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="App1.Views.DashboardPage"
+             Title="Roots
+             ">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Accent" Padding="24" CornerRadius="0" HeightRequest="80"></Frame>
+
+            <CollectionView x:Name="collectionView" Grid.Row="1" ItemsSource="{Binding Menu}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" Margin="0,-50,0,0">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <StackLayout.Padding>
+                                <OnIdiom x:TypeArguments="Thickness" Tablet="10" Phone="5"/>
+                            </StackLayout.Padding>
+                            <pancakeview:PancakeView CornerRadius="10" Elevation="3" HasShadow="True" BackgroundColor="White">
+                                <Grid HorizontalOptions="Center" Margin="0,15,0,15">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <ffimageloadingsvg:SvgCachedImage Grid.Row="0" Source="{Binding Image}">
+                                        <ffimageloadingsvg:SvgCachedImage.HeightRequest>
+                                            <OnIdiom x:TypeArguments="x:Double" Tablet="64" Phone="45"></OnIdiom>
+                                        </ffimageloadingsvg:SvgCachedImage.HeightRequest>
+                                    </ffimageloadingsvg:SvgCachedImage>
+                                    <Label Grid.Row="1" Text="{Binding Title}" VerticalTextAlignment="Center">
+                                        <Label.FontSize>
+                                            <OnIdiom x:TypeArguments="x:Double" Tablet="20" Phone="14"></OnIdiom>
+                                        </Label.FontSize>
+                                    </Label>
+                                </Grid>
+                            </pancakeview:PancakeView>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

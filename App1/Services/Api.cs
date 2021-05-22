@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 
-namespace App1.Service
+namespace App1.Services
 {
     public static class Api
     {

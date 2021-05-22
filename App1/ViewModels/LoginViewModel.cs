@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using App1.Views;
+using Xamarin.Forms;
 
 namespace App1.ViewModels
 {
@@ -16,9 +17,24 @@ namespace App1.ViewModels
             LoginCommand = new Command(OnLoginClicked);
         }
 
+        private bool _IsBusy { get; set; }
         private async void OnLoginClicked(object obj)
         {
-            //ir para o dashboard
+            if (_IsBusy)
+                return;
+
+            _IsBusy = true;
+
+            bool login = Services.Api.GetLogin(Email, Senha);
+
+            if (!login)
+            {
+                await App.Current.MainPage.DisplayAlert("Roots", "Usuário ou senha invãlido.", "OK");
+            }
+
+            App.Current.MainPage = new NavigationPage(new DashboardPage());
+
+            _IsBusy = false;
         }
     }
 }
