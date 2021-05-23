@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App1.Views.ArvorePage">
+             x:Class="App1.Views.ArvorePage"
+             Title="Árvore">
     <ContentPage.Content>
         <CollectionView x:Name="collectionView" Grid.Row="1" ItemsSource="{Binding Itens}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
             <CollectionView.ItemTemplate>
@@ -22,10 +23,10 @@
 
                             <StackLayout Padding="0,5,0,5">
                                 <StackLayout Padding="10" BackgroundColor="#f3f6f8">
-                                    <Label Text="{Binding descricao}"></Label>
-                                    <Label Text="{Binding especie.descricao}"></Label>
-                                    <Label Text="{Binding regiao.descricao}"></Label>
-                                    <Label Text="{Binding created_at}"></Label>
+                                    <Label Text="{Binding descricao, StringFormat='Descrição: {0}'}"></Label>
+                                    <Label Text="{Binding especie.descricao, StringFormat='Espécie: {0}'}"></Label>
+                                    <Label Text="{Binding regiao.descricao, StringFormat='Região: {0}'}"></Label>
+                                    <Label Text="{Binding created_at, StringFormat='Data Cadastro: {0}'}"></Label>
                                 </StackLayout>
                             </StackLayout>
 

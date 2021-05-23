@@ -18,9 +18,24 @@ namespace App1.Views
             ((CollectionView)sender).SelectedItem = null;
         }
 
-        private void VisualizarNoMapa_Invoked(object sender, EventArgs e)
+        private bool _IsBusy { get; set; }
+        private async void VisualizarNoMapa_Invoked(object sender, EventArgs e)
         {
+            if (_IsBusy)
+                return;
 
+            _IsBusy = true;
+
+            var value = (Models.Especie)((SwipeItem)sender).CommandParameter;
+
+            var posicao = await Services.Utils.ObterPosicaoAtual();
+
+            if (posicao == null)
+                return;
+
+            await Navigation.PushAsync(new MapsPage(posicao.Latitude, posicao.Longitude, 5000), true);
+
+            _IsBusy = false;
         }
 
     }

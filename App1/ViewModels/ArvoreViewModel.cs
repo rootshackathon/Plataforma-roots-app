@@ -8,7 +8,7 @@ namespace App1.ViewModels
 
         public ArvoreViewModel()
         {
-            var value = Services.Api.GetArvores();
+            var value = Services.Api.GetArvore();
 
             if (value != null)
                 Itens = new ObservableCollection<Models.Arvore>(value.data);

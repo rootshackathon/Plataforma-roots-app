@@ -40,8 +40,6 @@
                         TextColor="Black"   
                         BorderColor="Silver"
                         TextFontSize="14"/>
-                    
-                    <!--Falta selecionar a Especie-->
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,20">
                         <Button Text="Cancelar" BackgroundColor="Silver" CornerRadius="10" TextColor="White" Clicked="Button_Clicked_1"/>

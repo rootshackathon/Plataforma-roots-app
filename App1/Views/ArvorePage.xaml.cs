@@ -27,8 +27,8 @@ namespace App1.Views
             _IsBusy = true;
 
             var value = (Models.Arvore)((SwipeItem)sender).CommandParameter;
-            
-            await Navigation.PushAsync(new MapsPage(value.latitude, value.longitude, 5), true);
+
+            await Navigation.PushAsync(new MapsPage(value.latitude, value.longitude, 5000), true);
 
             _IsBusy = false;
         }

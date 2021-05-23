@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="App1.Views.CadastroManutencaoPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0" WidthRequest="350" HorizontalOptions="Center">
+            <StackLayout Padding="30,0" Spacing="12">
+                <Label Text="Nova Manutencao" FontSize="20"></Label>
+
+                <StackLayout>
+
+                    <Label Text="Data da Manutenção"></Label>
+                    <DatePicker 
+                        x:Name="DatePickerData"
+                        Format="dd/MM/yyyy" 
+                        TextColor="Black"/>
+
+                    <input:AdvancedEntry
+                        x:Name="EntryDescricao"
+                        IsEnabled="True"
+                        Title="Descrição"
+                        MinLength="10"
+                        MaxLength="50"
+                        TextColor="Black"   
+                        BorderColor="Silver"
+                        TextFontSize="14"/>
+
+                    <input:Dropdown
+                        x:Name="DropDownTipoManutencao"
+                        Grid.Row="1"
+                        Title="Tipo Manutenção"
+                        ItemsSource="{Binding TipoManutencao}"
+                        TitleColor="Black"
+                        AnnotationColor="Accent"
+                        BorderColor="Silver"
+                        Color="Transparent"/>
+
+                    <input:AdvancedEntry
+                        x:Name="EntryObservacao"
+                        IsEnabled="True"
+                        Title="Observação"
+                        MinLength="10"
+                        MaxLength="50"
+                        TextColor="Black"
+                        BorderColor="Silver"
+                        TextFontSize="14"/>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,20">
+                        <Button Text="Cancelar" BackgroundColor="Silver" CornerRadius="10" TextColor="White" Clicked="Button_Clicked_1"/>
+                        <Button Text="SALVAR" BackgroundColor="Accent" CornerRadius="10" TextColor="White" Clicked="Button_Clicked"/>
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

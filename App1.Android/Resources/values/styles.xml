@@ -6,7 +6,7 @@
     <item name="colorPrimaryDark">#018E68</item>
     <item name="colorAccent">#018E68</item>
   </style>
-  <!--<style name="SplashTheme" parent="MainTheme.Base">
+  <style name="SplashTheme" parent="MainTheme.Base">
     <item name="android:background">@drawable/splash_drawable</item>
-  </style>-->
+  </style>
 </resources>

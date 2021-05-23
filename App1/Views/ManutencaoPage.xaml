@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App1.Views.EspeciePage"
-             Title="Espécie">
+             x:Class="App1.Views.ManutencaoPage"
+             Title="Manutenção">
     <ContentPage.Content>
         <CollectionView x:Name="collectionView" Grid.Row="1" ItemsSource="{Binding Itens}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
             <CollectionView.ItemTemplate>
@@ -12,22 +12,24 @@
                             <SwipeView.RightItems>
                                 <SwipeItems>
                                     <SwipeItem
-                                        x:Name="visualizarNoMapa"
-                                        Text="Visualizar"
-                                        BackgroundColor="#018E68"                                            
-                                        Invoked="VisualizarNoMapa_Invoked"
-                                        Command="{Binding Source={x:Reference collectionView}}"
-                                        CommandParameter="{Binding}"/>
+                                    Text="Visualizar"
+                                    BackgroundColor="#018E68"                                            
+                                    Invoked="VisualizarNoMapa_Invoked"
+                                    Command="{Binding Source={x:Reference collectionView}}"
+                                    CommandParameter="{Binding}"
+                                    x:Name="visualizarNoMapa"/>
                                 </SwipeItems>
                             </SwipeView.RightItems>
 
                             <StackLayout Padding="0,5,0,5">
                                 <StackLayout Padding="10" BackgroundColor="#f3f6f8">
-                                    <Label Text="{Binding descricao, StringFormat='Descrição: {0}'}"></Label>
-                                    <Label Text="{Binding nome_cientifico, StringFormat='Nome Científico: {0}'}"></Label>
-                                    <!--<Label Text="{Binding dias_intervalo_poda}"></Label>-->
+                                    <Label Text="{Binding tipo_manutencao.descricao, StringFormat='Tipo de Manutenção: {0}'}"></Label>
+                                    <Label Text="{Binding status_manutencao, StringFormat='Status: {0}'}"></Label>
+                                    <Label Text="{Binding observacao, StringFormat='Obs: {0}'}"></Label>
+                                    <Label Text="{Binding created_at, StringFormat='Data: {0}'}"></Label>
                                 </StackLayout>
                             </StackLayout>
+
                         </SwipeView>
                     </ContentView>
                 </DataTemplate>
